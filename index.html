@@ -55,9 +55,13 @@
             background-size: 30px 30px;
         }
 
-        /* 135度3色グラデーション */
+        /* 135度3色グラデーション + 格子背景 */
         .image-gradient {
-            background: linear-gradient(135deg, #f5ccdd 0%, #ffffff 50%, #c8ddf2 100%);
+            background-image: 
+                linear-gradient(to right, #e2eef5 1px, transparent 1px),
+                linear-gradient(to bottom, #e2eef5 1px, transparent 1px),
+                linear-gradient(135deg, #f5ccdd 0%, #ffffff 50%, #c8ddf2 100%);
+            background-size: 30px 30px, 30px 30px, 100% 100%;
         }
 
         /* 特徴カード共通スタイル */
@@ -115,14 +119,15 @@
         .text-huge { font-size: clamp(1.1rem, 3.75vw, 2.1rem); line-height: 1.1; letter-spacing: -0.01em; }
         .text-title { font-size: clamp(1.8rem, 5.5vw, 2.8rem); line-height: 1.3; }
 
+        /* 相談予約ボタンのカラースタイル変更 */
         .btn-main {
-            background: #2d3e74;
-            color: white;
+            background: linear-gradient(135deg, #bdc3e2 0%, #fddde6 100%);
+            color: #2d3e74;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .btn-main:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(45, 62, 116, 0.2);
+            box-shadow: 0 10px 20px rgba(189, 195, 226, 0.4);
         }
         
         .badge-sub {
@@ -178,11 +183,11 @@
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 px-6 py-4 flex justify-between items-center transition-all duration-300" id="navbar">
-        <div class="flex items-center space-x-2">
-            <!-- Logo Adjustment -->
-            <img src="https://raw.githubusercontent.com/shii-fun/partner.with/main/assets/assets/partnerwith_logo.png" 
+        <div class="flex items-center">
+            <!-- ロゴ画像のみ表示 -->
+            <img src="https://raw.githubusercontent.com/shii-fun/partner.with/main/assets/partnerwith_logo.png" 
                  alt="partner with" 
-                 class="h-10 md:h-12 w-auto object-contain flex-shrink-0">
+                 class="h-10 md:h-12 w-auto object-contain block">
         </div>
         <div class="hidden md:flex space-x-10 text-[11px] font-bold tracking-[0.2em] uppercase text-brand-dark/50">
             <a href="#about" class="hover:text-brand-dark transition-colors">About</a>
@@ -198,11 +203,14 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="image-gradient relative min-h-screen flex items-center justify-center pt-24 px-6 overflow-hidden">
+    <section class="grid-bg relative min-h-screen flex items-center justify-center pt-24 px-6 overflow-hidden">
         <div class="container mx-auto relative z-10 flex flex-col items-center text-center">
-            <h1 class="text-huge font-bold text-brand-dark mb-10 reveal whitespace-nowrap">
-                話す 片付く <span class="text-brand-primary opacity-80">回りだす</span>
-            </h1>
+            <!-- テキストからコンセプト画像に差し替え -->
+            <div class="mb-10 reveal w-full max-w-2xl px-4">
+                <img src="https://raw.githubusercontent.com/shii-fun/partner.with/main/assets/concept.png" 
+                     alt="話す 片付く 回りだす" 
+                     class="w-full h-auto mx-auto">
+            </div>
             <p class="text-brand-dark/70 text-base md:text-xl leading-relaxed mb-14 max-w-2xl reveal">
                 「誰かに頼みたいけれど、説明する時間さえ惜しい」<br class="hidden md:block">
                 その状態から、私たちが業務を紐解き、仕組みに変えます。
@@ -215,12 +223,11 @@
                     <svg class="w-4 h-4 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 </a>
             </div>
-            
-            <div class="mt-20 w-full max-w-5xl reveal">
-                <div class="bg-white/30 p-4 rounded-[2.5rem] shadow-2xl backdrop-blur-sm border border-white/40">
-                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" 
-                         alt="Professional Workspace" class="w-full rounded-[2rem] shadow-sm">
-                </div>
+            <!-- キャラクター画像追加 -->
+            <div class="mt-12 reveal w-full max-w-[160px] md:max-w-[200px]">
+                <img src="https://raw.githubusercontent.com/shii-fun/partner.with/main/assets/tori1.png" 
+                     alt="Character" 
+                     class="w-full h-auto mx-auto drop-shadow-sm">
             </div>
         </div>
     </section>
@@ -269,7 +276,7 @@
                             </div>
                             <div class="stagger-item text-center">
                                 <div class="w-8 h-8 md:w-12 md:h-12 bg-white/60 rounded-full flex items-center justify-center mx-auto mb-3 shadow-sm">
-                                    <svg class="w-4 h-4 md:w-6 md:h-6 text-brand-dark/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+                                    <svg class="w-4 h-4 md:w-6 md:h-6 text-brand-dark/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.247 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
                                 </div>
                                 <span class="text-[10px] md:text-xs font-bold text-brand-dark/60 tracking-tighter">マニュアル作成</span>
                             </div>
@@ -479,7 +486,7 @@
                 <div class="stagger-item flex flex-col items-center flex-1 w-full lg:w-auto">
                     <div class="icon-sphere mb-6">
                         <svg class="w-10 h-10 text-brand-dark/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.247 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                         </svg>
                     </div>
                     <div class="feature-card-main p-6 w-full text-center flex flex-col items-center min-h-[160px]">
@@ -732,10 +739,10 @@
     <footer class="py-24 px-6 border-t border-brand-gridLine">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
             <div class="text-center md:text-left">
-                <!-- Footer Logo Adjustment -->
-                <img src="https://raw.githubusercontent.com/shii-fun/partner.with/main/assets/assets/partnerwith_logo.png" 
+                <!-- ロゴ画像のみ表示 -->
+                <img src="https://raw.githubusercontent.com/shii-fun/partner.with/main/assets/partnerwith_logo.png" 
                      alt="partner with" 
-                     class="h-12 md:h-14 w-auto mb-2 mx-auto md:mx-0 object-contain">
+                     class="h-12 md:h-14 w-auto mb-2 mx-auto md:mx-0 object-contain block">
                 <p class="text-[10px] text-brand-dark/30 font-bold tracking-[0.3em] uppercase mt-3">Professional Back-office Team</p>
             </div>
             <div class="flex flex-col items-center md:items-end gap-6">
